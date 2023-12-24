@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app'
 import { FlexBox, FlexBoxDirection } from '@ui5/webcomponents-react'
 
 import styles from '../styles/_app.module.scss'
-import Header from '../components/Header';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
