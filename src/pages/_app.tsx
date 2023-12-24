@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       
       <FlexBox className={styles.headerContainer}>
-        <Header />
+        <p>header-component goes here</p>
       </FlexBox>
       
       <FlexBox direction={FlexBoxDirection.Column} className={styles.contentContainer}>
