@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <p>home-page works</p>
-      <Button>Click me!</Button>
+      <p>home-page works</p>
     </>
   )
 }
