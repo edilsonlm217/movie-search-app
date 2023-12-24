@@ -15,7 +15,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <p>header-component goes here</p>
       </FlexBox>
       
-      <FlexBox direction={FlexBoxDirection.Column} className={styles.contentContainer}>
+      <FlexBox 
+        direction={FlexBoxDirection.Column} 
+        className={styles.contentContainer}
+      >
         <Component {...pageProps} />
       </FlexBox>
       
