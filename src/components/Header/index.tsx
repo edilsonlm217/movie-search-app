@@ -1,9 +1,14 @@
+import { HTMLAttributes } from 'react';
 import styles from './header.module.scss'
 
-export default function Header() {
+interface HeaderProps extends HTMLAttributes<HTMLElement> {}
+
+const Header: React.FC<HeaderProps> = ({ ...rest }) => {
   return (
-    <header className={styles.header}>
+    <header {...rest} className={styles.header}>
       <p>header</p>
     </header>
   )
 }
+
+export default Header;
