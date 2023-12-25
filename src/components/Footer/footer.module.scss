@@ -1,0 +1,10 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--sapBackgroundColor);
+    box-shadow: var(--sapContent_FooterShadow);
+    
+    padding: 1.5rem 1rem;
+}
