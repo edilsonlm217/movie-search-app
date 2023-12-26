@@ -1,0 +1,11 @@
+.pageContainer {
+    display: flex;
+    flex: 1;
+
+    .content {
+        width: 100%;
+        max-width: 72rem;
+        height: 100%;
+        margin: auto;
+    }
+}
