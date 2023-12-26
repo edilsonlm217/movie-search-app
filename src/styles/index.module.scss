@@ -3,9 +3,25 @@
     flex: 1;
 
     .content {
+        display: flex;
+        flex-direction: column;
+
         width: 100%;
         max-width: 72rem;
         height: 100%;
         margin: auto;
+        padding: 2rem;
+        align-items: center;
+        
+        .pageTitle {
+            text-align: center;
+        }
+
+        .pageDescription {
+            text-align: center;
+            width: 100%;
+            max-width: 36rem;
+            margin-top: 1rem;
+        }
     }
 }
