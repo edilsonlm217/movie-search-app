@@ -1,10 +1,12 @@
-import { Button } from '@ui5/webcomponents-react';
+import styles from '../styles/index.module.scss'
 
 export default function Home() {
   return (
-    <>
-      <p>home-page works</p>
-      <p>home-page works</p>
-    </>
+    <div className={styles.pageContainer}>
+      <div className={styles.content}>
+        <p>home-page works</p>
+        <p>home-page works</p>
+      </div>
+    </div>
   )
 }
