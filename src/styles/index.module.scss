@@ -23,5 +23,28 @@
             max-width: 36rem;
             margin-top: 1rem;
         }
+
+        .movieSearchBar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 2rem;
+            width: 70%;
+
+            .movieTitleInput {
+                width: 100%;
+                margin-right: 2rem;
+            }
+
+            .movieButtonContainer {
+                .searchButton {
+                    width: 120px;
+                }
+
+                .resetButton {
+                    width: 90px;
+                }
+            }
+        }
     }
 }
