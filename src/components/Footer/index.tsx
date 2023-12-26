@@ -6,7 +6,48 @@ interface FooterProps extends HTMLAttributes<HTMLElement> {}
 const Footer: React.FC<FooterProps> = ({ ...rest }) => {
   return (
     <footer {...rest} className={styles.footer}>
-      <p>footer</p>
+      <div className={styles.content}>
+        <p>
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+          footer
+        </p>
+      </div>
     </footer>
   )
 }
