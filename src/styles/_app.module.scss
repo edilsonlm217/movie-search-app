@@ -1,15 +1,8 @@
 .appContainer {
-    background-color: red;   
     height: 100vh;
     overflow-y: auto;
 
     .contentContainer {
         flex: 1;
-        background-color: yellow;
-    }
-
-    .footerContainer {
-        background-color: green;
-        min-height: 4rem;
     }
 }
