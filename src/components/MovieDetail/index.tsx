@@ -1,13 +1,59 @@
+import {
+  Button,
+  FlexBox,
+  FlexBoxDirection,
+  FlexBoxJustifyContent,
+  Text,
+  Title,
+} from "@ui5/webcomponents-react";
+import Image from "next/image";
 
-
-import styles from './movie-detail.module.scss'
+import styles from "./movie-detail.module.scss";
 
 interface MovieDetailProps {}
 
 const MovieDetail: React.FC<MovieDetailProps> = () => {
   return (
-    <p>movie-detail component works</p>
-  )
-}
+    <FlexBox
+      id="movie-details-container"
+      className={styles.movieDetailsContainer}
+      direction={FlexBoxDirection.Row}
+      justifyContent={FlexBoxJustifyContent.SpaceBetween}
+    >
+      <div id="details-container">
+        <Title suppressHydrationWarning={true} level="H4">
+          Movie Title
+        </Title>
+
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis neque
+          reprehenderit aliquam praesentium obcaecati earum eaque voluptatum,
+          nulla ab atque accusantium culpa repellat aspernatur voluptas
+          corrupti, numquam similique minus blanditiis.
+        </Text>
+
+        <Title suppressHydrationWarning={true} level="H6">
+          Actor <Text>Lorem Ipsum</Text>
+        </Title>
+
+        <Title suppressHydrationWarning={true} level="H6">
+          Review
+        </Title>
+
+        <Button suppressHydrationWarning={true} design="Emphasized">
+          Favoritar
+        </Button>
+      </div>
+      <div id="poster-container">
+        <Image
+          src="https://fastly.picsum.photos/id/988/300/477.jpg?hmac=bp3a0RDjimFEDbyaF58F5tFVdA6nyPwmNwrttIph5rw"
+          alt="poster"
+          width={300}
+          height={477}
+        />
+      </div>
+    </FlexBox>
+  );
+};
 
 export default MovieDetail;
