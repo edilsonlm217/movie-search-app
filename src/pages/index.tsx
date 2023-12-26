@@ -1,4 +1,5 @@
 import { Title, Text, ThemeProvider, FlexBox, FlexBoxDirection, Input, Button, ButtonType } from '@ui5/webcomponents-react'
+import MovieDetail from '../components/MovieDetail'
 
 import styles from '../styles/index.module.scss'
 
@@ -7,7 +8,7 @@ export default function Home() {
     <ThemeProvider>
       <div className={styles.pageContainer}>
         <div className={styles.content}>
-          <Title id="page-title" level="H3" className={styles.pageTitle}>
+          <Title suppressHydrationWarning={true} id="page-title" level="H3" className={styles.pageTitle}>
             Title
           </Title>
           
@@ -21,6 +22,7 @@ export default function Home() {
               id="movie-title-input" 
               placeholder="Digite o título do filme"
               className={styles.movieTitleInput}
+              suppressHydrationWarning={true}
             />
 
             <FlexBox 
@@ -33,6 +35,7 @@ export default function Home() {
                 className={styles.searchButton} 
                 type={ButtonType.Submit}
                 design="Emphasized" 
+                suppressHydrationWarning={true}
               >Search</Button>
               
               <Button 
@@ -40,9 +43,12 @@ export default function Home() {
                 className={styles.resetButton} 
                 type={ButtonType.Reset}
                 design="Transparent" 
+                suppressHydrationWarning={true}
               >Reset</Button>
             </FlexBox>
           </form>
+
+          <MovieDetail></MovieDetail>
         </div>
       </div>
     </ThemeProvider>
