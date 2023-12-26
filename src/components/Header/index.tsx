@@ -6,7 +6,31 @@ interface HeaderProps extends HTMLAttributes<HTMLElement> {}
 const Header: React.FC<HeaderProps> = ({ ...rest }) => {
   return (
     <header {...rest} className={styles.header}>
-      <p>header</p>
+      <div className={styles.content}>
+        <p>
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+          header
+        </p>
+      </div>
     </header>
   )
 }
