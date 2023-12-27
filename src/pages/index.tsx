@@ -1,4 +1,6 @@
 import React, { useState, FormEvent } from "react";
+import useMovieSearch from "../hooks/useMovieSearch";
+import MovieDetail from "../components/MovieDetail";
 import {
   Title,
   Text,
@@ -12,14 +14,14 @@ import {
   InputDomRef,
   Ui5CustomEvent,
 } from "@ui5/webcomponents-react";
-import MovieDetail from "../components/MovieDetail";
 
 import styles from "../styles/index.module.scss";
-import axios from "axios";
 
 export default function Home() {
   const [movieTitle, setMovieTitle] = useState("");
   const [showMovieDetail, setShowMovieDetail] = useState(false);
+
+  const { loading, error, movieData, searchMovie } = useMovieSearch();
 
   const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
     setMovieTitle(event.target.value || "");
@@ -29,27 +31,7 @@ export default function Home() {
     event: React.MouseEvent<ButtonDomRef, MouseEvent>
   ) => {
     event.preventDefault();
-
-    try {
-      // Faça a requisição HTTP com o título coletado
-      const response = await axios.get(
-        `http://localhost:3001/movie/search?title=${encodeURIComponent(
-          movieTitle
-        )}`,
-        {
-          // Pode adicionar headers se necessário
-        }
-      );
-
-      // Lógica adicional com a resposta da requisição
-      console.log(response.data);
-
-      // Atualiza o estado para mostrar o MovieDetail
-      setShowMovieDetail(true);
-    } catch (error) {
-      console.error(error);
-      // Trate o erro conforme necessário
-    }
+    await searchMovie(movieTitle);
   };
 
   const handleResetClick = (
@@ -60,10 +42,9 @@ export default function Home() {
     setShowMovieDetail(false);
   };
 
-  const handleSubmit = (event: FormEvent) => {
-    // Adicione aqui a lógica de manipulação do formulário, se necessário.
-    // Por padrão, vamos chamar handleSearchClick
-    handleSearchClick(event as any);
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    await searchMovie(movieTitle);
   };
 
   return (
@@ -108,9 +89,10 @@ export default function Home() {
                 type={ButtonType.Submit}
                 design="Emphasized"
                 onClick={(e) => handleSearchClick(e)}
+                disabled={loading}
                 suppressHydrationWarning={true}
               >
-                Search
+                {loading ? "Searching..." : "Search"}
               </Button>
 
               <Button
@@ -126,6 +108,8 @@ export default function Home() {
             </FlexBox>
           </form>
 
+          {loading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
           {showMovieDetail && <MovieDetail />}
         </div>
       </div>
