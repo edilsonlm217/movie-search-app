@@ -3,8 +3,6 @@ import Image from "next/image";
 import {
   Button,
   FlexBox,
-  FlexBoxDirection,
-  FlexBoxJustifyContent,
   RatingIndicator,
   Text,
   Title,
