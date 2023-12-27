@@ -20,8 +20,6 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
     <FlexBox
       id="movie-details-container"
       className={styles.movieDetailsContainer}
-      direction={FlexBoxDirection.Row}
-      justifyContent={FlexBoxJustifyContent.SpaceBetween}
     >
       <div id="details-container" className={styles.detailsContainer}>
         <Title suppressHydrationWarning={true} level="H2">

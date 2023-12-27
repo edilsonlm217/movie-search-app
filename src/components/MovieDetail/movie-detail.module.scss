@@ -1,6 +1,10 @@
 @import '../../styles/constants/breakpoints.scss';
 
 .movieDetailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     width: 100%;
     gap: 2rem;
 
@@ -27,7 +31,14 @@
 
     .posterContainer {
         @media screen and (max-width: $breakpoint-md) {
-            display: none;
+            width: 35%;
+            align-self: center;
+            order: -1;
         }
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+        flex-direction: column;
+        justify-content: none;
     }
 }
