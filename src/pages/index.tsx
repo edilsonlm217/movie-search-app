@@ -67,7 +67,7 @@ export default function Home() {
           </form>
 
           {true && (
-            <MovieDetail></MovieDetail>
+            <MovieDetail />
           )}
         </div>
       </div>
