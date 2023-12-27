@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import {
   Title,
   Text,
@@ -15,31 +15,55 @@ import {
 import MovieDetail from "../components/MovieDetail";
 
 import styles from "../styles/index.module.scss";
+import axios from "axios";
 
 export default function Home() {
   const [movieTitle, setMovieTitle] = useState("");
   const [showMovieDetail, setShowMovieDetail] = useState(false);
 
-  // Função intermediária para adaptar o tipo do evento onChange
   const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
-    // Fazer algo com o evento se necessário
     setMovieTitle(event.target.value || "");
   };
 
-  const handleSearchClick = (
-    event: React.MouseEvent<ButtonDomRef, globalThis.MouseEvent>
+  const handleSearchClick = async (
+    event: React.MouseEvent<ButtonDomRef, MouseEvent>
   ) => {
     event.preventDefault();
-    // Adicione lógica adicional para lidar com a busca, se necessário.
-    setShowMovieDetail(true);
+
+    try {
+      // Faça a requisição HTTP com o título coletado
+      const response = await axios.get(
+        `http://localhost:3001/movie/search?title=${encodeURIComponent(
+          movieTitle
+        )}`,
+        {
+          // Pode adicionar headers se necessário
+        }
+      );
+
+      // Lógica adicional com a resposta da requisição
+      console.log(response.data);
+
+      // Atualiza o estado para mostrar o MovieDetail
+      setShowMovieDetail(true);
+    } catch (error) {
+      console.error(error);
+      // Trate o erro conforme necessário
+    }
   };
 
   const handleResetClick = (
-    event: React.MouseEvent<ButtonDomRef, globalThis.MouseEvent>
+    event: React.MouseEvent<ButtonDomRef, MouseEvent>
   ) => {
     event.preventDefault();
     setMovieTitle("");
     setShowMovieDetail(false);
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    // Adicione aqui a lógica de manipulação do formulário, se necessário.
+    // Por padrão, vamos chamar handleSearchClick
+    handleSearchClick(event as any);
   };
 
   return (
@@ -60,7 +84,10 @@ export default function Home() {
             and explore new releases.
           </Text>
 
-          <form className={styles.movieSearchBar}>
+          <form
+            className={styles.movieSearchBar}
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <Input
               id="movie-title-input"
               placeholder="Enter movie title"
