@@ -20,7 +20,7 @@ export default function Home() {
           <Title
             suppressHydrationWarning={true}
             id="page-title"
-            level="H3"
+            level="H2"
             className={styles.pageTitle}
           >
             Explore Movies
@@ -50,6 +50,7 @@ export default function Home() {
                 type={ButtonType.Submit}
                 design="Emphasized"
                 suppressHydrationWarning={true}
+                style={{ width: '200px', height: '50px', fontSize: '16px' }}
               >
                 Search
               </Button>
@@ -60,13 +61,16 @@ export default function Home() {
                 type={ButtonType.Reset}
                 design="Transparent"
                 suppressHydrationWarning={true}
+                style={{ width: '100px', height: '50px', fontSize: '16px' }}
               >
                 Reset
               </Button>
             </FlexBox>
           </form>
 
-          <MovieDetail></MovieDetail>
+          {true && (
+            <MovieDetail></MovieDetail>
+          )}
         </div>
       </div>
     </ThemeProvider>
