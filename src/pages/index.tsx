@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from "react";
-import useMovieSearch from "../hooks/useMovieSearch";
+import { useMovieContext } from "../contexts/MovieContext";
 import MovieDetail from "../components/MovieDetail";
 import {
   Title,
@@ -10,34 +10,26 @@ import {
   Input,
   Button,
   ButtonType,
-  ButtonDomRef,
-  InputDomRef,
   Ui5CustomEvent,
+  InputDomRef,
 } from "@ui5/webcomponents-react";
 
 import styles from "../styles/index.module.scss";
 
 export default function Home() {
   const [movieTitle, setMovieTitle] = useState("");
-
   const { loading, error, movieData, searchMovie, resetMovieData } =
-    useMovieSearch();
+    useMovieContext();
 
   const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
     setMovieTitle(event.target.value || "");
   };
 
-  const handleSearchClick = async (
-    event: React.MouseEvent<ButtonDomRef, MouseEvent>
-  ) => {
-    event.preventDefault();
+  const handleSearchClick = async () => {
     await searchMovie(movieTitle);
   };
 
-  const handleResetClick = (
-    event: React.MouseEvent<ButtonDomRef, MouseEvent>
-  ) => {
-    event.preventDefault();
+  const handleResetClick = () => {
     setMovieTitle("");
     resetMovieData();
   };
@@ -88,7 +80,7 @@ export default function Home() {
                 className={styles.searchButton}
                 type={ButtonType.Submit}
                 design="Emphasized"
-                onClick={(e) => handleSearchClick(e)}
+                onClick={handleSearchClick}
                 disabled={loading}
                 suppressHydrationWarning={true}
               >
@@ -100,7 +92,7 @@ export default function Home() {
                 className={styles.resetButton}
                 type={ButtonType.Reset}
                 design="Transparent"
-                onClick={(e) => handleResetClick(e)}
+                onClick={handleResetClick}
                 suppressHydrationWarning={true}
               >
                 Reset
