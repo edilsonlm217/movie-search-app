@@ -1,4 +1,3 @@
-// useMovieSearch.ts
 import { useState } from 'react';
 import axios from 'axios';
 import { Movie } from '../types/Movie';
@@ -8,6 +7,7 @@ interface MovieSearchResult {
   error: string | null;
   movieData: Movie | null;
   searchMovie: (title: string) => Promise<void>;
+  resetMovieData: () => void;
 }
 
 const useMovieSearch = (): MovieSearchResult => {
@@ -30,7 +30,11 @@ const useMovieSearch = (): MovieSearchResult => {
     }
   };
 
-  return { loading, error, movieData, searchMovie };
+  const resetMovieData = () => {
+    setMovieData(null);
+  };
+
+  return { loading, error, movieData, searchMovie, resetMovieData };
 };
 
 export default useMovieSearch;
