@@ -1,0 +1,11 @@
+$breakpoint-xs: 320px;  // Para smartphones
+$breakpoint-sm: 576px;  // Para smartphones em modo paisagem e tablets em modo retrato
+$breakpoint-md: 768px;  // Para tablets em modo paisagem e monitores pequenos
+$breakpoint-lg: 992px;  // Para monitores médios e tablets em modo paisagem
+$breakpoint-xl: 1200px; // Para monitores grandes
+
+@mixin respond-to($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
