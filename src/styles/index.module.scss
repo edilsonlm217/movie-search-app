@@ -58,7 +58,7 @@
         }
     }
 
-    @media screen and (max-width: $breakpoint-xs) {
+    @media screen and (max-width: $breakpoint-md) {
         .content {
             .movieSearchBar {
                 display: flex;
