@@ -1,5 +1,5 @@
-import React, { useState, FormEvent } from "react";
-import { useMovieContext } from "../contexts/MovieContext";
+import React from "react";
+import useMovieSearchHome from "../hooks/useMovieSearchHome";
 import MovieDetail from "../components/MovieDetail";
 import {
   Title,
@@ -10,34 +10,21 @@ import {
   Input,
   Button,
   ButtonType,
-  Ui5CustomEvent,
-  InputDomRef,
 } from "@ui5/webcomponents-react";
 
 import styles from "../styles/index.module.scss";
+import { useMovieContext } from "../contexts/MovieContext";
 
 export default function Home() {
-  const [movieTitle, setMovieTitle] = useState("");
-  const { loading, error, movieData, searchMovie, resetMovieData } =
-    useMovieContext();
+  const {
+    movieTitle,
+    handleInputChange,
+    handleSearchClick,
+    handleResetClick,
+    handleSubmit,
+  } = useMovieSearchHome();
 
-  const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
-    setMovieTitle(event.target.value || "");
-  };
-
-  const handleSearchClick = async () => {
-    await searchMovie(movieTitle);
-  };
-
-  const handleResetClick = () => {
-    setMovieTitle("");
-    resetMovieData();
-  };
-
-  const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault();
-    await searchMovie(movieTitle);
-  };
+  const { loading, error, movieData } = useMovieContext();
 
   return (
     <ThemeProvider>
