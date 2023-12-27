@@ -28,7 +28,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
           Movie Title
         </Title>
 
-        <Text style={{ fontSize: "18px" }}>
+        <Text>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis neque
           reprehenderit aliquam praesentium obcaecati earum eaque voluptatum,
           nulla ab atque accusantium culpa repellat aspernatur voluptas
@@ -36,14 +36,15 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
         </Text>
 
         <Title suppressHydrationWarning={true} level="H3">
-          Actor <Text style={{ fontSize: "18px" }}>Lorem Ipsum</Text>
+          Actor <Text>Lorem Ipsum</Text>
         </Title>
 
         <Title suppressHydrationWarning={true} level="H3">
           Review
           <RatingIndicator
+            id="rating-indicator"
+            className={styles.ratingIndicator}
             suppressHydrationWarning={true}
-            style={{ marginLeft: "1rem" }}
           />
         </Title>
 
