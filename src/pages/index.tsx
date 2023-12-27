@@ -50,7 +50,6 @@ export default function Home() {
                 type={ButtonType.Submit}
                 design="Emphasized"
                 suppressHydrationWarning={true}
-                style={{ width: '200px', height: '50px', fontSize: '16px' }}
               >
                 Search
               </Button>
@@ -61,7 +60,6 @@ export default function Home() {
                 type={ButtonType.Reset}
                 design="Transparent"
                 suppressHydrationWarning={true}
-                style={{ width: '100px', height: '50px', fontSize: '16px' }}
               >
                 Reset
               </Button>
