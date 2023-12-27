@@ -59,7 +59,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
           Favorite
         </Button>
       </div>
-      <div id="poster-container">
+      <div id="poster-container" className={styles.posterContainer}>
         <Image
           src="https://fastly.picsum.photos/id/988/300/477.jpg?hmac=bp3a0RDjimFEDbyaF58F5tFVdA6nyPwmNwrttIph5rw"
           alt="poster"

@@ -23,8 +23,10 @@
             margin-left: 1rems;
         }
     }
-}
 
-@media screen and (max-width: $breakpoint-md) {
-
+    .posterContainer {
+        @media screen and (max-width: $breakpoint-md) {
+            display: none;
+        }
+    }
 }
