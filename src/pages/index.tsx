@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Title,
   Text,
@@ -7,12 +8,40 @@ import {
   Input,
   Button,
   ButtonType,
+  ButtonDomRef,
+  InputDomRef,
+  Ui5CustomEvent,
 } from "@ui5/webcomponents-react";
 import MovieDetail from "../components/MovieDetail";
 
 import styles from "../styles/index.module.scss";
 
 export default function Home() {
+  const [movieTitle, setMovieTitle] = useState("");
+  const [showMovieDetail, setShowMovieDetail] = useState(false);
+
+  // Função intermediária para adaptar o tipo do evento onChange
+  const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
+    // Fazer algo com o evento se necessário
+    setMovieTitle(event.target.value || "");
+  };
+
+  const handleSearchClick = (
+    event: React.MouseEvent<ButtonDomRef, globalThis.MouseEvent>
+  ) => {
+    event.preventDefault();
+    // Adicione lógica adicional para lidar com a busca, se necessário.
+    setShowMovieDetail(true);
+  };
+
+  const handleResetClick = (
+    event: React.MouseEvent<ButtonDomRef, globalThis.MouseEvent>
+  ) => {
+    event.preventDefault();
+    setMovieTitle("");
+    setShowMovieDetail(false);
+  };
+
   return (
     <ThemeProvider>
       <div className={styles.pageContainer}>
@@ -36,6 +65,8 @@ export default function Home() {
               id="movie-title-input"
               placeholder="Enter movie title"
               className={styles.movieTitleInput}
+              value={movieTitle}
+              onChange={(e) => handleInputChange(e)}
               suppressHydrationWarning={true}
             />
 
@@ -49,6 +80,7 @@ export default function Home() {
                 className={styles.searchButton}
                 type={ButtonType.Submit}
                 design="Emphasized"
+                onClick={(e) => handleSearchClick(e)}
                 suppressHydrationWarning={true}
               >
                 Search
@@ -59,6 +91,7 @@ export default function Home() {
                 className={styles.resetButton}
                 type={ButtonType.Reset}
                 design="Transparent"
+                onClick={(e) => handleResetClick(e)}
                 suppressHydrationWarning={true}
               >
                 Reset
@@ -66,9 +99,7 @@ export default function Home() {
             </FlexBox>
           </form>
 
-          {true && (
-            <MovieDetail />
-          )}
+          {showMovieDetail && <MovieDetail />}
         </div>
       </div>
     </ThemeProvider>
