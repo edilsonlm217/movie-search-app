@@ -19,9 +19,9 @@ import styles from "../styles/index.module.scss";
 
 export default function Home() {
   const [movieTitle, setMovieTitle] = useState("");
-  const [showMovieDetail, setShowMovieDetail] = useState(false);
 
-  const { loading, error, movieData, searchMovie } = useMovieSearch();
+  const { loading, error, movieData, searchMovie, resetMovieData } =
+    useMovieSearch();
 
   const handleInputChange = (event: Ui5CustomEvent<InputDomRef, never>) => {
     setMovieTitle(event.target.value || "");
@@ -39,7 +39,7 @@ export default function Home() {
   ) => {
     event.preventDefault();
     setMovieTitle("");
-    setShowMovieDetail(false);
+    resetMovieData();
   };
 
   const handleSubmit = async (event: FormEvent) => {
@@ -110,7 +110,7 @@ export default function Home() {
 
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
-          {showMovieDetail && <MovieDetail />}
+          {movieData && <MovieDetail />}
         </div>
       </div>
     </ThemeProvider>
