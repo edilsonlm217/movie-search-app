@@ -1,13 +1,16 @@
+import Image from "next/image";
+
 import {
   Button,
   FlexBox,
   FlexBoxDirection,
   FlexBoxJustifyContent,
+  RatingIndicator,
   Text,
   Title,
 } from "@ui5/webcomponents-react";
-import Image from "next/image";
 
+import "@ui5/webcomponents-icons/dist/heart.js";
 import styles from "./movie-detail.module.scss";
 
 interface MovieDetailProps {}
@@ -20,7 +23,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
       direction={FlexBoxDirection.Row}
       justifyContent={FlexBoxJustifyContent.SpaceBetween}
     >
-      <div id="details-container">
+      <div id="details-container" className={styles.detailsContainer}>
         <Title suppressHydrationWarning={true} level="H4">
           Movie Title
         </Title>
@@ -37,11 +40,17 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
         </Title>
 
         <Title suppressHydrationWarning={true} level="H6">
-          Review
+          Review <RatingIndicator suppressHydrationWarning={true} />
         </Title>
 
-        <Button suppressHydrationWarning={true} design="Emphasized">
-          Favoritar
+        <Button
+          id="favorite-button"
+          className={styles.favoriteButton}
+          suppressHydrationWarning={true}
+          design="Emphasized"
+          icon="heart"
+        >
+          Favorite
         </Button>
       </div>
       <div id="poster-container">

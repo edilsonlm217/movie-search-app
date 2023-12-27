@@ -1,3 +1,13 @@
 .movieDetailsContainer {
     width: 100%;
+    
+    .detailsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .favoriteButton {
+            width: 150px;
+        }
+    }
 }
