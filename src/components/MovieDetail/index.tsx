@@ -24,23 +24,27 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
       justifyContent={FlexBoxJustifyContent.SpaceBetween}
     >
       <div id="details-container" className={styles.detailsContainer}>
-        <Title suppressHydrationWarning={true} level="H4">
+        <Title suppressHydrationWarning={true} level="H2">
           Movie Title
         </Title>
 
-        <Text>
+        <Text style={{ fontSize: "18px" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis neque
           reprehenderit aliquam praesentium obcaecati earum eaque voluptatum,
           nulla ab atque accusantium culpa repellat aspernatur voluptas
           corrupti, numquam similique minus blanditiis.
         </Text>
 
-        <Title suppressHydrationWarning={true} level="H6">
-          Actor <Text>Lorem Ipsum</Text>
+        <Title suppressHydrationWarning={true} level="H3">
+          Actor <Text style={{ fontSize: "18px" }}>Lorem Ipsum</Text>
         </Title>
 
-        <Title suppressHydrationWarning={true} level="H6">
-          Review <RatingIndicator suppressHydrationWarning={true} />
+        <Title suppressHydrationWarning={true} level="H3">
+          Review
+          <RatingIndicator
+            suppressHydrationWarning={true}
+            style={{ marginLeft: "1rem" }}
+          />
         </Title>
 
         <Button
@@ -49,6 +53,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
           suppressHydrationWarning={true}
           design="Emphasized"
           icon="heart"
+          iconEnd={true}
         >
           Favorite
         </Button>
@@ -57,7 +62,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
         <Image
           src="https://fastly.picsum.photos/id/988/300/477.jpg?hmac=bp3a0RDjimFEDbyaF58F5tFVdA6nyPwmNwrttIph5rw"
           alt="poster"
-          width={300}
+          width={700}
           height={477}
         />
       </div>
