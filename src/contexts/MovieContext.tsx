@@ -1,6 +1,6 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import axios from "axios";
-import { Movie } from "../types/Movie";
+import { Movie, MovieResponse } from "../types/Movie";
 
 interface MovieContextProps {
   loading: boolean;
@@ -26,7 +26,8 @@ export const MovieProvider: React.FC<{ children: ReactNode }> = ({
       const response = await axios.get(
         `http://localhost:3001/movie/search?title=${encodeURIComponent(title)}`
       );
-      setMovieData(response.data);
+      const data = response.data as MovieResponse;
+      setMovieData(data.movie);
       setError(null);
     } catch (error) {
       console.error(error);
