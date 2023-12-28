@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {
   Button,
   FlexBox,
@@ -7,10 +5,10 @@ import {
   Text,
   Title,
 } from "@ui5/webcomponents-react";
+import { useMovieContext } from "../../contexts/MovieContext";
 
 import "@ui5/webcomponents-icons/dist/heart.js";
 import styles from "./movie-detail.module.scss";
-import { useMovieContext } from "../../contexts/MovieContext";
 
 interface MovieDetailProps {}
 
