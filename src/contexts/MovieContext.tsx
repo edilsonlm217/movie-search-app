@@ -15,6 +15,8 @@ const MovieContext = createContext<MovieContextProps | undefined>(undefined);
 export const MovieProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [movieData, setMovieData] = useState<Movie | null>(null);
@@ -24,7 +26,7 @@ export const MovieProvider: React.FC<{ children: ReactNode }> = ({
 
     try {
       const response = await axios.get(
-        `http://localhost:3001/movie/search?title=${encodeURIComponent(title)}`
+        `${baseUrl}/movie/search?title=${encodeURIComponent(title)}`
       );
       const data = response.data as MovieResponse;
       setMovieData(data.movie);
