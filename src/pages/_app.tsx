@@ -1,6 +1,4 @@
 import "../styles/globals.css";
-import dotenv from "dotenv";
-dotenv.config();
 import type { AppProps } from "next/app";
 import { FlexBox, FlexBoxDirection } from "@ui5/webcomponents-react";
 import { MovieProvider } from "../contexts/MovieContext";
