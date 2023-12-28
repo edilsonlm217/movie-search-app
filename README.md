@@ -39,18 +39,6 @@ PORT=3000
 # Adicione outras variáveis conforme necessário
 ```
 
-### Configurações do Editor
-
-Recomendamos o uso do Visual Studio Code (VSCode) para desenvolvimento. Se você estiver usando o VSCode, as seguintes extensões são recomendadas:
-
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-### Configurações de Formatação e Linting
-
-Este projeto utiliza ESLint e Prettier para manter um código consistente e bem formatado. Certifique-se de instalar as extensões recomendadas para o VSCode conforme mencionado acima.
-
 ## Uso
 
 ### Desenvolvimento
