@@ -1,61 +1,87 @@
-**README: Movie Search App**
+# Movie Search App
 
-**Descrição:**
+Este é um projeto de uma aplicação Full Stack para buscar informações sobre títulos de filmes usando a OMDB API.
 
-O Movie Search App é uma aplicação web desenvolvida para facilitar a busca e exploração de informações sobre filmes. Com uma interface amigável e recursos intuitivos, os usuários podem pesquisar por títulos de filmes, visualizar detalhes interessantes e explorar os lançamentos mais recentes.
+## Pré-requisitos
 
-**Instruções de Execução:**
+- [Node.js](https://nodejs.org/) (LTS)
+- [npm](https://www.npmjs.com/)
 
-Para começar, siga as instruções abaixo:
+## Instalação
 
-1. **Clonar Repositório:**
-   ```
+1. Clone o repositório:
+
+   ```bash
    git clone https://github.com/edilsonlm217/movie-search-app.git
    ```
 
-2. **Instalar Dependências:**
-   ```
+2. Instale as dependências:
+
+   ```bash
+   cd movie-search-app
    npm install
    ```
 
-3. **Configuração do Ambiente:**
-   Certifique-se de que o arquivo `nextconfig.js` esteja configurado adequadamente. O ambiente pode ser ajustado conforme necessário.
+3. Crie uma conta no [OMDB API](http://www.omdbapi.com/) para gerar sua API Key.
 
-4. **Iniciar a Aplicação:**
+4. Crie um arquivo `.env` na raiz do projeto e adicione sua API Key:
+
+   ```env
+   OMDB_API_KEY=SuaApiKeyAqui
    ```
-   npm run dev
-   ```
 
-5. **Acesse a Aplicação:**
-   Abra seu navegador e acesse `http://localhost:3000` para começar a explorar filmes!
+## Configuração
 
-**Tecnologias Utilizadas:**
+Crie um arquivo `.env` na raiz do projeto e adicione as variáveis de ambiente necessárias, como:
 
-- **Frontend:**
-  - React com UI5 Web Components para uma experiência de usuário moderna.
+```env
+PORT=3000
+# Adicione outras variáveis conforme necessário
+```
 
-- **Backend:**
-  - Nest.js para manipulação de requisições à API de filmes.
+### Configurações do Editor
 
-- **State Management:**
-  - Context API para um gerenciamento eficiente do estado da aplicação.
+Recomendamos o uso do Visual Studio Code (VSCode) para desenvolvimento. Se você estiver usando o VSCode, as seguintes extensões são recomendadas:
 
-- **Estilo:**
-  - Estilização modular usando SCSS para manter um código organizado e reutilizável.
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-- **Integração com API:**
-  - Axios para realizar requisições HTTP à API de filmes.
+### Configurações de Formatação e Linting
 
-**Contribuição:**
+Este projeto utiliza ESLint e Prettier para manter um código consistente e bem formatado. Certifique-se de instalar as extensões recomendadas para o VSCode conforme mencionado acima.
 
-Sinta-se à vontade para contribuir para o desenvolvimento do Movie Search App. Basta seguir as diretrizes de contribuição e abrir uma pull request.
+## Uso
 
-**Licença:**
+### Desenvolvimento
 
-Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+Execute o servidor de desenvolvimento:
 
-**Agradecimentos:**
+```bash
+npm run start:dev  # ou use yarn
+```
 
-O Movie Search App é mantido por Edilson R Lima. Agradecemos a todos os contribuidores e usuários que ajudaram a tornar este projeto possível.
+O servidor estará disponível em http://localhost:3000 por padrão.
 
-Divirta-se explorando filmes com o Movie Search App!
+### Produção
+
+Para construir e iniciar o servidor em modo de produção:
+
+```bash
+npm run build  # ou use yarn
+npm start  # ou use yarn
+```
+
+## Contribuição
+
+Se quiser contribuir, por favor:
+
+1. Faça um fork do projeto
+2. Crie uma nova branch (git checkout -b feature/nova-feature)
+3. Faça commit das suas alterações (git commit -am 'Adicione uma nova feature')
+4. Faça push para a branch (git push origin feature/nova-feature)
+5. Crie um novo Pull Request
+
+## Licença
+
+Este projeto é licenciado sob a Licença MIT.
