@@ -10,10 +10,13 @@ import {
 
 import "@ui5/webcomponents-icons/dist/heart.js";
 import styles from "./movie-detail.module.scss";
+import { useMovieContext } from "../../contexts/MovieContext";
 
 interface MovieDetailProps {}
 
 const MovieDetail: React.FC<MovieDetailProps> = () => {
+  const { movieData } = useMovieContext();
+
   return (
     <FlexBox
       id="movie-details-container"
@@ -21,18 +24,13 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
     >
       <div id="details-container" className={styles.detailsContainer}>
         <Title suppressHydrationWarning={true} level="H2">
-          Movie Title
+          {movieData?.Title}
         </Title>
 
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis neque
-          reprehenderit aliquam praesentium obcaecati earum eaque voluptatum,
-          nulla ab atque accusantium culpa repellat aspernatur voluptas
-          corrupti, numquam similique minus blanditiis.
-        </Text>
+        <Text>{movieData?.Plot}</Text>
 
         <Title suppressHydrationWarning={true} level="H3">
-          Actor <Text>Lorem Ipsum</Text>
+          Actor <Text>{movieData?.Actors}</Text>
         </Title>
 
         <Title suppressHydrationWarning={true} level="H3">
@@ -41,6 +39,7 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
             id="rating-indicator"
             className={styles.ratingIndicator}
             suppressHydrationWarning={true}
+            value={movieData ? parseFloat(movieData.imdbRating) / 2 : 0}
           />
         </Title>
 
@@ -55,14 +54,11 @@ const MovieDetail: React.FC<MovieDetailProps> = () => {
           Favorite
         </Button>
       </div>
-      <div id="poster-container" className={styles.posterContainer}>
-        <Image
-          src="https://fastly.picsum.photos/id/988/300/477.jpg?hmac=bp3a0RDjimFEDbyaF58F5tFVdA6nyPwmNwrttIph5rw"
-          alt="poster"
-          width={700}
-          height={477}
-        />
-      </div>
+      <div
+        id="poster-container"
+        className={styles.posterContainer}
+        style={{ backgroundImage: `url(${movieData ? movieData.Poster : ""})` }}
+      ></div>
     </FlexBox>
   );
 };
