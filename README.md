@@ -1,40 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**README: Movie Search App**
 
-## Getting Started
+**Descrição:**
 
-First, run the development server:
+O Movie Search App é uma aplicação web desenvolvida para facilitar a busca e exploração de informações sobre filmes. Com uma interface amigável e recursos intuitivos, os usuários podem pesquisar por títulos de filmes, visualizar detalhes interessantes e explorar os lançamentos mais recentes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Instruções de Execução:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para começar, siga as instruções abaixo:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. **Clonar Repositório:**
+   ```
+   git clone https://github.com/edilsonlm217/movie-search-app.git
+   ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **Instalar Dependências:**
+   ```
+   npm install
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. **Configuração do Ambiente:**
+   Certifique-se de que o arquivo `nextconfig.js` esteja configurado adequadamente. O ambiente pode ser ajustado conforme necessário.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Iniciar a Aplicação:**
+   ```
+   npm run dev
+   ```
 
-## Learn More
+5. **Acesse a Aplicação:**
+   Abra seu navegador e acesse `http://localhost:3000` para começar a explorar filmes!
 
-To learn more about Next.js, take a look at the following resources:
+**Tecnologias Utilizadas:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:**
+  - React com UI5 Web Components para uma experiência de usuário moderna.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Backend:**
+  - Nest.js para manipulação de requisições à API de filmes.
 
-## Deploy on Vercel
+- **State Management:**
+  - Context API para um gerenciamento eficiente do estado da aplicação.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Estilo:**
+  - Estilização modular usando SCSS para manter um código organizado e reutilizável.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Integração com API:**
+  - Axios para realizar requisições HTTP à API de filmes.
+
+**Contribuição:**
+
+Sinta-se à vontade para contribuir para o desenvolvimento do Movie Search App. Basta seguir as diretrizes de contribuição e abrir uma pull request.
+
+**Licença:**
+
+Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+
+**Agradecimentos:**
+
+O Movie Search App é mantido por Edilson R Lima. Agradecemos a todos os contribuidores e usuários que ajudaram a tornar este projeto possível.
+
+Divirta-se explorando filmes com o Movie Search App!
