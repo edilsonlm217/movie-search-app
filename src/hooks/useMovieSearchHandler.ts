@@ -2,7 +2,7 @@ import { useState, FormEvent } from "react";
 import { useMovieContext } from "../contexts/MovieContext";
 import { Ui5CustomEvent, InputDomRef } from "@ui5/webcomponents-react";
 
-interface UseMovieSearchHomeProps {
+interface UseMovieSearchHandlerProps {
   movieTitle: string;
   handleInputChange: (event: Ui5CustomEvent<InputDomRef, never>) => void;
   handleSearchClick: () => Promise<void>;
@@ -10,7 +10,7 @@ interface UseMovieSearchHomeProps {
   handleSubmit: (event: FormEvent) => Promise<void>;
 }
 
-const useMovieSearchHome = (): UseMovieSearchHomeProps => {
+const useMovieSearchHandler = (): UseMovieSearchHandlerProps => {
   const [movieTitle, setMovieTitle] = useState("");
   const { searchMovie, resetMovieData } = useMovieContext();
 
@@ -41,4 +41,4 @@ const useMovieSearchHome = (): UseMovieSearchHomeProps => {
   };
 };
 
-export default useMovieSearchHome;
+export default useMovieSearchHandler;
