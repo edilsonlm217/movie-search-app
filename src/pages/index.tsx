@@ -1,6 +1,7 @@
 import React from "react";
-import useMovieSearchHome from "../hooks/useMovieSearchHome";
+import useMovieSearchHandler from "../hooks/useMovieSearchHandler";
 import MovieDetail from "../components/MovieDetail";
+import { useMovieContext } from "../contexts/MovieContext";
 import {
   Title,
   Text,
@@ -13,7 +14,6 @@ import {
 } from "@ui5/webcomponents-react";
 
 import styles from "../styles/index.module.scss";
-import { useMovieContext } from "../contexts/MovieContext";
 
 export default function Home() {
   const {
@@ -22,7 +22,7 @@ export default function Home() {
     handleSearchClick,
     handleResetClick,
     handleSubmit,
-  } = useMovieSearchHome();
+  } = useMovieSearchHandler();
 
   const { loading, error, movieData } = useMovieContext();
 
