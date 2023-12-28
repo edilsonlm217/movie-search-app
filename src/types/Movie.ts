@@ -28,3 +28,9 @@ export interface Movie {
     Website: string;
     Response: string;
 }
+
+export interface MovieResponse {
+    statusCode: number;
+    statusMessage: string;
+    movie: Movie;
+}
